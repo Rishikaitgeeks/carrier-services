@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node";
 export async function action({ request }) {
   const body = await request.json();
   const rate = body.rate;
@@ -73,5 +74,5 @@ export async function action({ request }) {
   });
 
   // Agar koi rate nahi to empty array (Shopify fallback rates use karega)
-  return rates;
+  return json({ rates });
 }
