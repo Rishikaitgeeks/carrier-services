@@ -1,4 +1,4 @@
-import { json } from "@remix-run/node";
+import { json } from "@react-router/node";
 export async function action({ request }) {
   const body = await request.json();
   const rate = body.rate;
