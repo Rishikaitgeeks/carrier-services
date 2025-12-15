@@ -1,4 +1,4 @@
-import { json } from "@react-router/node"; // ye safe hai loader mein
+
 import { authenticate } from "../shopify.server";
 
 export const loader = async ({ request }) => {
@@ -8,7 +8,7 @@ export const loader = async ({ request }) => {
 
   const settings = await ShopSettings.findOne({ shop: session.shop });
 
-  return json({
+  return Response.json({
     count: settings?.shippingOptionsCount || 5,
   });
 };
