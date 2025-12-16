@@ -5,7 +5,7 @@ import {
   useAttributes,
   useApplyAttributeChange
 } from '@shopify/ui-extensions/checkout/preact';
-import apiCAll from "../../services/api"
+
 export default async () => {
   render(<Extension />, document.body);
 };
@@ -89,21 +89,11 @@ function Extension() {
     });
   };
 
-  const options = ['0', '1', '2', '3', '4'];
+  const options = ['0','1', '2', '3', '4'];
 
-  const handleChange = async (event) => {
+  const handleChange = (event) => {
     setHasUserSelected(true);
     setSelectedValues(event.currentTarget.values);
-    try {
-      const token = await shopify.sessionToken.get();
-      const API = new apiCAll();
-
-      const res = await API.dataPass(selectedValues , token)
-      
-      console.log('Fetch response:', res);
-    } catch (err) {
-      console.error('Fetch error', err);
-    }
   };
 
   const count =
