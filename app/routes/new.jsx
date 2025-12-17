@@ -2,6 +2,8 @@
 export async function action({ request }) {
     const body = await request.json();
     console.log("Response", JSON.stringify(body, null, 2));
+    const shippingNote = body?.rate?.items?.[0]?.properties?.shipping_note;
+    console.log("Shipping Note:", shippingNote);
     const rates = [];
 
     rates.push({
